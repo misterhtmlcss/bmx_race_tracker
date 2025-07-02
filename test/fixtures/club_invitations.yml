@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  club: one
+  email: MyString
+  token: MyString
+  status: 1
+  invited_by: one
+  invited_by_type: Invited by
+  expires_at: 2025-07-02 11:59:34
+
+two:
+  club: two
+  email: MyString
+  token: MyString
+  status: 1
+  invited_by: two
+  invited_by_type: Invited by
+  expires_at: 2025-07-02 11:59:34

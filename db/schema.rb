@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_02_165406) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_02_175934) do
+  create_table "club_invitations", force: :cascade do |t|
+    t.integer "club_id", null: false
+    t.string "email", null: false
+    t.string "token", null: false
+    t.integer "status", default: 0, null: false
+    t.string "invited_by_type", null: false
+    t.integer "invited_by_id", null: false
+    t.datetime "expires_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_club_invitations_on_club_id"
+    t.index ["email", "club_id"], name: "index_club_invitations_on_email_and_club_id"
+    t.index ["invited_by_type", "invited_by_id"], name: "index_club_invitations_on_invited_by"
+    t.index ["token"], name: "index_club_invitations_on_token", unique: true
+  end
+
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -49,6 +65,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_165406) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "club_invitations", "clubs"
   add_foreign_key "races", "clubs"
   add_foreign_key "users", "clubs"
 end

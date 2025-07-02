@@ -2,6 +2,10 @@ class Club < ApplicationRecord
   # Associations
   has_many :users, dependent: :restrict_with_exception
   has_one :race, dependent: :destroy
+  has_many :club_invitations, dependent: :destroy
+
+  # Scopes
+  scope :active, -> { where(active: true) }
 
   # Validations
   validates :name, presence: true

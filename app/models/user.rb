@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   # Associations
   belongs_to :club, optional: true
+  has_many :sent_invitations, as: :invited_by, class_name: "ClubInvitation"
 
   # Validations
   validates :name, presence: true
