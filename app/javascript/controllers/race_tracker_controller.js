@@ -8,7 +8,10 @@ export default class extends Controller {
     "registrationDeadline",
     "raceStartTime",
     "registrationDisplay",
-    "raceStartDisplay"
+    "raceStartDisplay",
+    "raceTimesBanner",
+    "registrationBannerDisplay",
+    "raceStartBannerDisplay"
   ]
 
   connect() {
@@ -87,11 +90,13 @@ export default class extends Controller {
     if (registrationTime) {
       this.registrationDeadlineTarget.value = registrationTime
       this.registrationDisplayTarget.textContent = this.formatTime(registrationTime)
+      this.registrationBannerDisplayTarget.textContent = this.formatTime(registrationTime)
     }
     
     if (raceTime) {
       this.raceStartTimeTarget.value = raceTime
       this.raceStartDisplayTarget.textContent = this.formatTime(raceTime)
+      this.raceStartBannerDisplayTarget.textContent = this.formatTime(raceTime)
     }
   }
 

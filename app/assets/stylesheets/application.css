@@ -53,6 +53,37 @@ body {
   font-weight: 600;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.auth-btn:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 .settings-btn {
   background: none;
   border: none;
@@ -129,6 +160,34 @@ body {
 
 .save-btn:active {
   background-color: #1e8449;
+}
+
+/* Race Times Banner */
+.race-times-banner {
+  background: linear-gradient(135deg, #e74c3c 0%, #e67e22 100%);
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.race-time-item {
+  text-align: center;
+  color: white;
+}
+
+.time-label {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.time-value {
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 /* Main Content */
@@ -264,6 +323,27 @@ body {
     font-size: 20px;
   }
   
+  .header-actions {
+    gap: 5px;
+  }
+  
+  .auth-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .race-times-banner {
+    padding: 20px 15px;
+  }
+  
+  .time-label {
+    font-size: 14px;
+  }
+  
+  .time-value {
+    font-size: 28px;
+  }
+  
   .counter-section {
     padding: 20px;
   }
@@ -292,4 +372,119 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+/* Authentication Pages */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.auth-card {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-card h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.auth-form {
+  width: 100%;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+  min-height: 44px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #e67e22;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+}
+
+.form-checkbox {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+}
+
+.checkbox-field label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.form-actions {
+  margin-top: 30px;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  min-height: 44px;
+}
+
+.submit-btn:hover {
+  background-color: #d35400;
+}
+
+.submit-btn:active {
+  background-color: #ba4a00;
+}
+
+.auth-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.auth-links a {
+  color: #e67e22;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+  margin: 5px 0;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
 }

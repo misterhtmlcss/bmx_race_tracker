@@ -2,12 +2,19 @@
   <!-- Header -->
   <header class="header">
     <h1>BMX Race Tracker</h1>
-    <button class="settings-btn" data-action="click->race-tracker#toggleSettings">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="3"></circle>
-        <path d="M12 1v6m0 6v6m-9-9h6m6 0h6m-4.2-7.8L12 3.6 8.4 2.4m0 19.2L12 20.4l3.6 1.2M3.6 8.4L2.4 12l1.2 3.6m19.2 0L20.4 12l1.2-3.6M8.4 21.6l3.6-1.2 3.6 1.2M2.4 8.4l1.2 3.6-1.2 3.6"></path>
-      </svg>
-    </button>
+    <div class="header-actions">
+      <% if user_signed_in? %>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "auth-btn logout-btn" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "auth-btn login-btn" %>
+      <% end %>
+      <button class="settings-btn" data-action="click->race-tracker#toggleSettings">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v6m0 6v6m-9-9h6m6 0h6m-4.2-7.8L12 3.6 8.4 2.4m0 19.2L12 20.4l3.6 1.2M3.6 8.4L2.4 12l1.2 3.6m19.2 0L20.4 12l1.2-3.6M8.4 21.6l3.6-1.2 3.6 1.2M2.4 8.4l1.2 3.6-1.2 3.6"></path>
+        </svg>
+      </button>
+    </div>
   </header>
 
   <!-- Settings Panel -->
@@ -26,6 +33,18 @@
       </div>
       <button type="submit" class="save-btn">Save Settings</button>
     </form>
+  </div>
+
+  <!-- Race Times Banner (Prominent before race) -->
+  <div class="race-times-banner" data-race-tracker-target="raceTimesBanner">
+    <div class="race-time-item registration">
+      <div class="time-label">Registration Closes</div>
+      <div class="time-value" data-race-tracker-target="registrationBannerDisplay">--:--</div>
+    </div>
+    <div class="race-time-item race-start">
+      <div class="time-label">Race Starts</div>
+      <div class="time-value" data-race-tracker-target="raceStartBannerDisplay">--:--</div>
+    </div>
   </div>
 
   <!-- Main Content -->
