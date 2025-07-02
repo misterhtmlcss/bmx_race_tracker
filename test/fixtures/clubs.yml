@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+airdrie:
+  name: Airdrie BMX Club
+  slug: airdriebmx
+  city: Airdrie
+  country: Canada
+  active: true
+
+calgary:
+  name: Calgary BMX Club
+  slug: calgarybmx
+  city: Calgary
+  country: Canada
+  active: true

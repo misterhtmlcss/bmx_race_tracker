@@ -1,0 +1,14 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+airdrie_race:
+  club: airdrie
+  gate_counter: 0
+  staging_counter: 1
+  registration_deadline: "09:30:00"
+  race_start_time: "10:00:00"
+
+calgary_race:
+  club: calgary
+  # Counters are nil - race not started yet
+  registration_deadline: "09:00:00"
+  race_start_time: "09:30:00"
