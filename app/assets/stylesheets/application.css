@@ -488,3 +488,42 @@ button {
 .auth-links a:hover {
   text-decoration: underline;
 }
+
+.field-hint {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+  font-style: normal;
+}
+
+.error-messages {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.error-messages h3 {
+  color: #e74c3c;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.error-messages ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.error-messages li {
+  color: #c0392b;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.error-messages li:before {
+  content: "• ";
+  margin-right: 5px;
+}
