@@ -16,7 +16,6 @@
           <th>Role</th>
           <th>Club</th>
           <th>Joined</th>
-          <th>Last Sign In</th>
         </tr>
       </thead>
       <tbody>
@@ -37,9 +36,6 @@
               <% end %>
             </td>
             <td><%= user.created_at.strftime("%b %d, %Y") %></td>
-            <td>
-              <%= user.last_sign_in_at&.strftime("%b %d, %Y") || "Never" %>
-            </td>
           </tr>
         <% end %>
       </tbody>
