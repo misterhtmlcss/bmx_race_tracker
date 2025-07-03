@@ -1,19 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  club: one
-  email: MyString
-  token: MyString
-  status: 1
-  invited_by: one
-  invited_by_type: Invited by
+airdrie_invitation:
+  club: airdrie
+  email: sarah.johnson@airdriebmx.ca
+  token: unique_token_airdrie_123456
+  status: 0
+  invited_by: operator_airdrie
+  invited_by_type: User
   expires_at: 2025-07-02 11:59:34
 
-two:
-  club: two
-  email: MyString
-  token: MyString
-  status: 1
-  invited_by: two
-  invited_by_type: Invited by
+calgary_invitation:
+  club: calgary
+  email: mike.chen@calgarybmx.ca
+  token: unique_token_calgary_789012
+  status: 0
+  invited_by: admin_calgary
+  invited_by_type: User
   expires_at: 2025-07-02 11:59:34

@@ -1,22 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 operator_airdrie:
-  email: operator@airdrie.com
+  email: john.martinez@airdriebmx.ca
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
-  name: John Operator
+  name: John Martinez
   role: 0
   club: airdrie
 
 admin_calgary:
-  email: admin@calgary.com
+  email: jane.thompson@calgarybmx.ca
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
-  name: Jane Admin
+  name: Jane Thompson
   role: 1
   club: calgary
 
 super_admin:
-  email: superadmin@bmxtracker.com
+  email: admin@bmxcanada.ca
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
-  name: Super Admin
+  name: Robert Wilson
   role: 2
   # no club for super admin
