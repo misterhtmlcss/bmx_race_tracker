@@ -100,11 +100,19 @@
         <div class="detail-grid">
           <div class="detail-item">
             <label>Current Moto at Gate:</label>
-            <span><%= @club.race.at_gate || 0 %></span>
+            <span><%= @club.race.gate_counter || 0 %></span>
           </div>
           <div class="detail-item">
             <label>Current Moto in Staging:</label>
-            <span><%= @club.race.in_staging || 1 %></span>
+            <span><%= @club.race.staging_counter || 1 %></span>
+          </div>
+          <div class="detail-item">
+            <label>Registration Deadline:</label>
+            <span><%= @club.race.registration_deadline&.strftime("%I:%M %p") || "Not set" %></span>
+          </div>
+          <div class="detail-item">
+            <label>Race Start Time:</label>
+            <span><%= @club.race.race_start_time&.strftime("%I:%M %p") || "Not set" %></span>
           </div>
         </div>
       <% else %>
