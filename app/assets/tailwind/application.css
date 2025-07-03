@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Custom styles for specific components that can't be easily replaced with utilities */
+@layer components {
+  /* Touch-friendly button minimum size */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Prevent zoom on double tap for mobile */
+  body {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+}
