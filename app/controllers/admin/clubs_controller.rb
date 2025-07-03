@@ -1,5 +1,5 @@
 class Admin::ClubsController < Admin::BaseController
-  before_action :set_club, only: [:show, :edit, :update, :destroy]
+  before_action :set_club, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @clubs = Club.includes(:users).order(:name)
@@ -15,7 +15,7 @@ class Admin::ClubsController < Admin::BaseController
 
   def create
     @club = Club.new(club_params)
-    
+
     if @club.save
       redirect_to admin_clubs_path, notice: "Club was successfully created."
     else

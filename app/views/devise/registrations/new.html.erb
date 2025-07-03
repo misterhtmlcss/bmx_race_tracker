@@ -41,8 +41,6 @@
         </div>
       <% elsif invitation.present? %>
         <!-- User joining via invitation -->
-        <%= f.hidden_field :role, value: User::OPERATOR %>
-        <%= f.hidden_field :club_id, value: invitation.club_id %>
       <% else %>
         <!-- Regular signup - must have invitation -->
         <div class="error-messages">
