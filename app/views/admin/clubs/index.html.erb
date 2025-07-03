@@ -1,0 +1,56 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <h1>Manage Clubs</h1>
+    <div class="header-actions">
+      <%= link_to "Create New Club", new_admin_club_path, class: "btn btn-primary" %>
+    </div>
+  </header>
+
+  <nav class="admin-breadcrumb">
+    <%= link_to "Dashboard", admin_root_path %> / Clubs
+  </nav>
+
+  <% if @clubs.any? %>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Slug</th>
+          <th>Location</th>
+          <th>Users</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @clubs.each do |club| %>
+          <tr>
+            <td><strong><%= club.name %></strong></td>
+            <td><code><%= club.slug %></code></td>
+            <td><%= club.city %>, <%= club.country %></td>
+            <td><%= club.users.count %></td>
+            <td>
+              <span class="status-badge <%= club.active? ? 'active' : 'inactive' %>">
+                <%= club.active? ? 'Active' : 'Inactive' %>
+              </span>
+            </td>
+            <td><%= club.created_at.strftime("%b %d, %Y") %></td>
+            <td class="actions">
+              <%= link_to "View", admin_club_path(club), class: "action-link" %>
+              <%= link_to "Edit", edit_admin_club_path(club), class: "action-link" %>
+              <%= button_to "Delete", admin_club_path(club), method: :delete, 
+                  data: { confirm: "Are you sure? This will delete the club and all associated data." },
+                  class: "action-link danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="empty-state">
+      <p>No clubs have been created yet.</p>
+      <%= link_to "Create the first club", new_admin_club_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

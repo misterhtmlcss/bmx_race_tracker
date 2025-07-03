@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    root "dashboard#index"
+    resources :clubs
+    resources :users, only: [:index, :show, :edit, :update]
+  end
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }

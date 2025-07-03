@@ -4,6 +4,9 @@
     <h1>BMX Race Tracker</h1>
     <div class="header-actions">
       <% if user_signed_in? %>
+        <% if current_user.admin? || current_user.super_admin? %>
+          <%= link_to "Admin", admin_root_path, class: "auth-btn admin-btn" %>
+        <% end %>
         <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "auth-btn logout-btn" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "auth-btn login-btn" %>

@@ -1,0 +1,57 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <h1>Create New Club</h1>
+  </header>
+
+  <nav class="admin-breadcrumb">
+    <%= link_to "Dashboard", admin_root_path %> / 
+    <%= link_to "Clubs", admin_clubs_path %> / 
+    New
+  </nav>
+
+  <div class="admin-form-container">
+    <%= form_with model: [:admin, @club], class: "admin-form" do |f| %>
+      <% if @club.errors.any? %>
+        <div class="error-messages">
+          <h3><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h3>
+          <ul>
+            <% @club.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-input", placeholder: "Thunder BMX Club" %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :slug %>
+        <%= f.text_field :slug, class: "form-input", placeholder: "thunder-bmx-club" %>
+        <p class="field-hint">URL-friendly identifier (lowercase letters, numbers, and hyphens only)</p>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :city %>
+        <%= f.text_field :city, class: "form-input", placeholder: "Toronto" %>
+      </div>
+
+      <div class="form-field">
+        <%= f.label :country %>
+        <%= f.text_field :country, class: "form-input", placeholder: "Canada" %>
+      </div>
+
+      <div class="form-field checkbox-field">
+        <%= f.check_box :active, class: "form-checkbox" %>
+        <%= f.label :active %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Create Club", class: "btn btn-primary" %>
+        <%= link_to "Cancel", admin_clubs_path, class: "btn btn-secondary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

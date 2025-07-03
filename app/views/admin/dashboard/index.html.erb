@@ -1,0 +1,90 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, <%= current_user.name %> (<%= current_user.role_name.humanize %>)</p>
+  </header>
+
+  <div class="admin-stats">
+    <div class="stat-card">
+      <h3>Total Clubs</h3>
+      <p class="stat-number"><%= @clubs_count %></p>
+      <%= link_to "Manage Clubs", admin_clubs_path, class: "stat-link" %>
+    </div>
+    
+    <div class="stat-card">
+      <h3>Total Users</h3>
+      <p class="stat-number"><%= @users_count %></p>
+      <%= link_to "Manage Users", admin_users_path, class: "stat-link" %>
+    </div>
+  </div>
+
+  <div class="admin-sections">
+    <section class="admin-section">
+      <h2>Recent Clubs</h2>
+      <% if @recent_clubs.any? %>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>City</th>
+              <th>Users</th>
+              <th>Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @recent_clubs.each do |club| %>
+              <tr>
+                <td><%= club.name %></td>
+                <td><%= club.city %>, <%= club.country %></td>
+                <td><%= club.users.count %></td>
+                <td><%= club.created_at.strftime("%b %d, %Y") %></td>
+                <td>
+                  <%= link_to "View", admin_club_path(club), class: "action-link" %>
+                  <%= link_to "Edit", edit_admin_club_path(club), class: "action-link" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p class="empty-state">No clubs yet. <%= link_to "Create the first club", new_admin_club_path %></p>
+      <% end %>
+    </section>
+
+    <section class="admin-section">
+      <h2>Recent Users</h2>
+      <% if @recent_users.any? %>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Club</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @recent_users.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.role_name.humanize %></td>
+                <td><%= user.club&.name || "—" %></td>
+                <td><%= user.created_at.strftime("%b %d, %Y") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p class="empty-state">No users yet.</p>
+      <% end %>
+    </section>
+  </div>
+
+  <div class="admin-actions">
+    <%= link_to "Create New Club", new_admin_club_path, class: "btn btn-primary" %>
+    <%= link_to "Back to Race Tracker", root_path, class: "btn btn-secondary" %>
+  </div>
+</div>
