@@ -10,8 +10,8 @@ class CreateClubInvitations < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
-    
+
     add_index :club_invitations, :token, unique: true
-    add_index :club_invitations, [:email, :club_id]
+    add_index :club_invitations, [ :email, :club_id ]
   end
 end
