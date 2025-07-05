@@ -75,11 +75,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Race Tracker Container */
 .race-tracker {
-  max-width: 600px;
+  width: 100%;
+  max-width: 768px;
   margin: 0 auto;
   background-color: var(--surface);
-  box-shadow: 0 0 20px var(--shadow-md);
   min-height: 100vh;
+}
+
+@media (min-width: 769px) {
+  .race-tracker {
+    box-shadow: 0 0 20px var(--shadow-md);
+  }
 }
 
 /* Header */
@@ -239,16 +245,19 @@ h1, h2, h3, h4, h5, h6 {
 .main-content {
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 20px;
   gap: 20px;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Counter Sections */
 .counter-section {
   background-color: #f8f9fa;
   border-radius: 12px;
-  padding: 20px;
+  padding: 25px 20px;
   box-shadow: 0 2px 10px var(--shadow-sm);
+  width: 100%;
 }
 
 .counter-section h2 {
@@ -419,7 +428,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .main-content {
-    padding: 10px;
+    padding: 15px;
     gap: 15px;
   }
   
