@@ -26,7 +26,7 @@
       <tbody>
         <% @clubs.each do |club| %>
           <tr>
-            <td><strong><%= club.name %></strong></td>
+            <td><%= link_to club.name, admin_club_path(club), class: "club-name-link" %></td>
             <td><%= club.slug %></td>
             <td><%= club.city %>, <%= club.country %></td>
             <td><%= club.users.count %></td>
@@ -37,11 +37,7 @@
             </td>
             <td><%= club.created_at.strftime("%b %d, %Y") %></td>
             <td class="actions">
-              <%= link_to "View", admin_club_path(club), class: "action-link" %>
               <%= link_to "Edit", edit_admin_club_path(club), class: "action-link" %>
-              <%= button_to "Delete", admin_club_path(club), method: :delete,
-                  data: { confirm: "Are you sure? This will delete the club and all associated data." },
-                  class: "action-link danger" %>
             </td>
           </tr>
         <% end %>

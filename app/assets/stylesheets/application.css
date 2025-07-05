@@ -736,6 +736,17 @@ button {
   color: #666;
 }
 
+.club-name-link {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.club-name-link:hover {
+  color: var(--violet-blue);
+  text-decoration: underline;
+}
+
 .status-badge {
   padding: 4px 8px;
   border-radius: 4px;
