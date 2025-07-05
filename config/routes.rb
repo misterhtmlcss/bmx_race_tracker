@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "race_tracker#index"
+
+  # Club-specific race pages (e.g., /airdriebmx)
+  get "/:slug", to: "race_tracker#show", as: :club_race, constraints: { slug: /[a-z0-9\-]+/ }
 end
