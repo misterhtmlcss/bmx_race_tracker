@@ -1,16 +1,21 @@
 <div class="admin-container">
   <header class="admin-header">
     <h1>Create New Club</h1>
+    <div class="header-actions">
+      <%= link_to "Back to Clubs", admin_clubs_path, class: "btn btn-secondary" %>
+    </div>
   </header>
 
   <nav class="admin-breadcrumb">
-    <%= link_to "Dashboard", admin_root_path %> / 
-    <%= link_to "Clubs", admin_clubs_path %> / 
+    <%= link_to "Dashboard", admin_root_path %> /
+    <%= link_to "Clubs", admin_clubs_path %> /
     New
   </nav>
 
-  <div class="admin-form-container">
-    <%= form_with model: [:admin, @club], class: "admin-form" do |f| %>
+  <div class="admin-sections">
+    <section class="admin-section">
+      <h2>Club Details</h2>
+      <%= form_with model: [:admin, @club], class: "admin-form" do |f| %>
       <% if @club.errors.any? %>
         <div class="error-messages">
           <h3><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h3>
@@ -24,12 +29,12 @@
 
       <div class="form-field">
         <%= f.label :name %>
-        <%= f.text_field :name, class: "form-input", placeholder: "Thunder BMX Club" %>
+        <%= f.text_field :name, class: "form-input", placeholder: "Airdrie BMX Club" %>
       </div>
 
       <div class="form-field">
         <%= f.label :slug, "Club Handle/URL Name" %>
-        <%= f.text_field :slug, class: "form-input", placeholder: "thunder-bmx-club" %>
+        <%= f.text_field :slug, class: "form-input", placeholder: "airdrie-bmx-club" %>
         <p class="field-hint">Used in your club's web address: bmxtools.com/<%= f.object.slug || 'your-handle' %> (lowercase letters, numbers, and hyphens only)</p>
       </div>
 
@@ -43,15 +48,11 @@
         <%= f.text_field :country, class: "form-input", placeholder: "Canada" %>
       </div>
 
-      <div class="form-field checkbox-field">
-        <%= f.check_box :active, class: "form-checkbox" %>
-        <%= f.label :active %>
-      </div>
-
       <div class="form-actions">
         <%= f.submit "Create Club", class: "btn btn-primary" %>
         <%= link_to "Cancel", admin_clubs_path, class: "btn btn-secondary" %>
       </div>
     <% end %>
+    </section>
   </div>
 </div>
