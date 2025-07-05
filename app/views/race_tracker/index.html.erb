@@ -2,33 +2,7 @@
   <!-- Header -->
   <header class="header">
     <h1>BMX Race Tracker</h1>
-    <div class="header-actions">
-      <button class="settings-btn" data-action="click->race-tracker#toggleSettings">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="3"></circle>
-          <path d="M12 1v6m0 6v6m-9-9h6m6 0h6m-4.2-7.8L12 3.6 8.4 2.4m0 19.2L12 20.4l3.6 1.2M3.6 8.4L2.4 12l1.2 3.6m19.2 0L20.4 12l1.2-3.6M8.4 21.6l3.6-1.2 3.6 1.2M2.4 8.4l1.2 3.6-1.2 3.6"></path>
-        </svg>
-      </button>
-    </div>
   </header>
-
-  <!-- Settings Panel -->
-  <div class="settings-panel" data-race-tracker-target="settingsPanel" style="display: none;">
-    <h2>Race Time Settings</h2>
-    <form data-action="submit->race-tracker#saveSettings">
-      <div class="form-group">
-        <label for="registration-deadline">Registration Deadline:</label>
-        <input type="time" id="registration-deadline" name="registration_deadline" 
-               data-race-tracker-target="registrationDeadline">
-      </div>
-      <div class="form-group">
-        <label for="race-start-time">Race Start Time:</label>
-        <input type="time" id="race-start-time" name="race_start_time" 
-               data-race-tracker-target="raceStartTime">
-      </div>
-      <button type="submit" class="save-btn">Save Settings</button>
-    </form>
-  </div>
 
   <!-- Main Content -->
   <main class="main-content">
