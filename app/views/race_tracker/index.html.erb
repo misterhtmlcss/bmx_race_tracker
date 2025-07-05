@@ -3,14 +3,6 @@
   <header class="header">
     <h1>BMX Race Tracker</h1>
     <div class="header-actions">
-      <% if user_signed_in? %>
-        <% if current_user.admin? || current_user.super_admin? %>
-          <%= link_to "Admin", admin_root_path, class: "auth-btn admin-btn" %>
-        <% end %>
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "auth-btn logout-btn" %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path, class: "auth-btn login-btn" %>
-      <% end %>
       <button class="settings-btn" data-action="click->race-tracker#toggleSettings">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="3"></circle>
@@ -36,18 +28,6 @@
       </div>
       <button type="submit" class="save-btn">Save Settings</button>
     </form>
-  </div>
-
-  <!-- Race Times Banner (Prominent before race) -->
-  <div class="race-times-banner" data-race-tracker-target="raceTimesBanner">
-    <div class="race-time-item registration">
-      <div class="time-label">Registration Closes</div>
-      <div class="time-value" data-race-tracker-target="registrationBannerDisplay">--:--</div>
-    </div>
-    <div class="race-time-item race-start">
-      <div class="time-label">Race Starts</div>
-      <div class="time-value" data-race-tracker-target="raceStartBannerDisplay">--:--</div>
-    </div>
   </div>
 
   <!-- Main Content -->
@@ -93,9 +73,21 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="race-times">
-      <span>Registration closes: <span data-race-tracker-target="registrationDisplay">--:--</span></span>
-      <span>Race starts: <span data-race-tracker-target="raceStartDisplay">--:--</span></span>
+    <div class="auth-actions">
+      <div class="auth-left">
+        <% if user_signed_in? %>
+          <% if current_user.admin? || current_user.super_admin? %>
+            <%= link_to "Admin", admin_root_path, class: "auth-btn admin-btn" %>
+          <% end %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "auth-btn login-btn" %>
+        <% end %>
+      </div>
+      <div class="auth-right">
+        <% if user_signed_in? %>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "auth-btn logout-btn" %>
+        <% end %>
+      </div>
     </div>
   </footer>
 </div>

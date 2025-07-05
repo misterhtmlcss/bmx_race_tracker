@@ -6,12 +6,7 @@ export default class extends Controller {
     "inStagingDisplay", 
     "settingsPanel",
     "registrationDeadline",
-    "raceStartTime",
-    "registrationDisplay",
-    "raceStartDisplay",
-    "raceTimesBanner",
-    "registrationBannerDisplay",
-    "raceStartBannerDisplay"
+    "raceStartTime"
   ]
 
   connect() {
@@ -89,14 +84,10 @@ export default class extends Controller {
     
     if (registrationTime) {
       this.registrationDeadlineTarget.value = registrationTime
-      this.registrationDisplayTarget.textContent = this.formatTime(registrationTime)
-      this.registrationBannerDisplayTarget.textContent = this.formatTime(registrationTime)
     }
     
     if (raceTime) {
       this.raceStartTimeTarget.value = raceTime
-      this.raceStartDisplayTarget.textContent = this.formatTime(raceTime)
-      this.raceStartBannerDisplayTarget.textContent = this.formatTime(raceTime)
     }
   }
 
