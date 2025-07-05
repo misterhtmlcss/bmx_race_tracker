@@ -24,6 +24,14 @@ if Rails.env.development?
   end
   puts "Created test club: #{test_club.name}"
 
+  # Create AirdrieBMX club
+  airdrie_club = Club.find_or_create_by!(name: "AirdrieBMX") do |club|
+    club.slug = "airdriebmx"
+    club.city = "Calgary"
+    club.country = "Canada"
+  end
+  puts "Created club: #{airdrie_club.name}"
+
   # Create a club admin user
   club_admin = User.find_or_create_by!(email: "clubadmin@bmxracetracker.com") do |user|
     user.password = "password123"
