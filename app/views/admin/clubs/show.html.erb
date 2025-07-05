@@ -3,15 +3,15 @@
     <h1><%= @club.name %></h1>
     <div class="header-actions">
       <%= link_to "Edit Club", edit_admin_club_path(@club), class: "btn btn-primary" %>
-      <%= button_to "Delete Club", admin_club_path(@club), method: :delete, 
+      <%= button_to "Delete Club", admin_club_path(@club), method: :delete,
           data: { confirm: "Are you sure? This will delete the club and all associated data." },
           class: "btn btn-secondary" %>
     </div>
   </header>
 
   <nav class="admin-breadcrumb">
-    <%= link_to "Dashboard", admin_root_path %> / 
-    <%= link_to "Clubs", admin_clubs_path %> / 
+    <%= link_to "Dashboard", admin_root_path %> /
+    <%= link_to "Clubs", admin_clubs_path %> /
     <%= @club.name %>
   </nav>
 
@@ -26,7 +26,7 @@
         </div>
         <div class="detail-item">
           <label>Club Handle/URL Name:</label>
-          <span><code><%= @club.slug %></code></span>
+          <span><%= @club.slug %></span>
         </div>
         <div class="detail-item">
           <label>Location:</label>
@@ -52,7 +52,7 @@
     <!-- Club Members -->
     <section class="admin-section">
       <h2>Club Members (<%= @users.count %>)</h2>
-      
+
       <div class="section-actions">
         <%= link_to "Invite New Member", "#", class: "btn btn-primary btn-sm" %>
       </div>
