@@ -1,6 +1,9 @@
 <div class="admin-container">
   <header class="admin-header">
-    <h1>Edit Club</h1>
+    <h1>Edit <%= @club.name %></h1>
+    <div class="header-actions">
+      <%= link_to "View Club", admin_club_path(@club), class: "btn btn-secondary" %>
+    </div>
   </header>
 
   <nav class="admin-breadcrumb">
@@ -10,8 +13,10 @@
     Edit
   </nav>
 
-  <div class="admin-form-container">
-    <%= form_with model: [:admin, @club], class: "admin-form" do |f| %>
+  <div class="admin-sections">
+    <section class="admin-section">
+      <h2>Edit Club Details</h2>
+      <%= form_with model: [:admin, @club], class: "admin-form" do |f| %>
       <% if @club.errors.any? %>
         <div class="error-messages">
           <h3><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h3>
@@ -29,9 +34,9 @@
       </div>
 
       <div class="form-field">
-        <%= f.label :slug %>
+        <%= f.label :slug, "Club Handle/URL Name" %>
         <%= f.text_field :slug, class: "form-input" %>
-        <p class="field-hint">URL-friendly identifier (lowercase letters, numbers, and hyphens only)</p>
+        <p class="field-hint">Used in your club's web address: bmxtools.com/<%= f.object.slug || 'your-handle' %> (lowercase letters, numbers, and hyphens only)</p>
       </div>
 
       <div class="form-field">
@@ -44,15 +49,11 @@
         <%= f.text_field :country, class: "form-input" %>
       </div>
 
-      <div class="form-field checkbox-field">
-        <%= f.check_box :active, class: "form-checkbox" %>
-        <%= f.label :active %>
-      </div>
-
       <div class="form-actions">
         <%= f.submit "Update Club", class: "btn btn-primary" %>
         <%= link_to "Cancel", admin_club_path(@club), class: "btn btn-secondary" %>
       </div>
     <% end %>
+    </section>
   </div>
 </div>

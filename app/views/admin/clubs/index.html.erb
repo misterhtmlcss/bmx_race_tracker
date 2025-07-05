@@ -10,12 +10,15 @@
     <%= link_to "Dashboard", admin_root_path %> / Clubs
   </nav>
 
-  <% if @clubs.any? %>
-    <table class="admin-table">
+  <div class="admin-sections">
+    <section class="admin-section">
+      <h2>All Clubs</h2>
+      <% if @clubs.any? %>
+        <table class="admin-table">
       <thead>
         <tr>
           <th>Name</th>
-          <th>Slug</th>
+          <th>Club Handle/URL Name</th>
           <th>Location</th>
           <th>Users</th>
           <th>Status</th>
@@ -26,8 +29,8 @@
       <tbody>
         <% @clubs.each do |club| %>
           <tr>
-            <td><strong><%= club.name %></strong></td>
-            <td><code><%= club.slug %></code></td>
+            <td><%= link_to club.name, admin_club_path(club), class: "club-name-link" %></td>
+            <td><%= club.slug %></td>
             <td><%= club.city %>, <%= club.country %></td>
             <td><%= club.users.count %></td>
             <td>
@@ -37,20 +40,18 @@
             </td>
             <td><%= club.created_at.strftime("%b %d, %Y") %></td>
             <td class="actions">
-              <%= link_to "View", admin_club_path(club), class: "action-link" %>
               <%= link_to "Edit", edit_admin_club_path(club), class: "action-link" %>
-              <%= button_to "Delete", admin_club_path(club), method: :delete, 
-                  data: { confirm: "Are you sure? This will delete the club and all associated data." },
-                  class: "action-link danger" %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
-  <% else %>
-    <div class="empty-state">
-      <p>No clubs have been created yet.</p>
-      <%= link_to "Create the first club", new_admin_club_path, class: "btn btn-primary" %>
-    </div>
-  <% end %>
+      <% else %>
+        <div class="empty-state">
+          <p>No clubs have been created yet.</p>
+          <%= link_to "Create the first club", new_admin_club_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </section>
+  </div>
 </div>
