@@ -10,8 +10,11 @@
     <%= link_to "Dashboard", admin_root_path %> / Clubs
   </nav>
 
-  <% if @clubs.any? %>
-    <table class="admin-table">
+  <div class="admin-sections">
+    <section class="admin-section">
+      <h2>All Clubs</h2>
+      <% if @clubs.any? %>
+        <table class="admin-table">
       <thead>
         <tr>
           <th>Name</th>
@@ -43,10 +46,12 @@
         <% end %>
       </tbody>
     </table>
-  <% else %>
-    <div class="empty-state">
-      <p>No clubs have been created yet.</p>
-      <%= link_to "Create the first club", new_admin_club_path, class: "btn btn-primary" %>
-    </div>
-  <% end %>
+      <% else %>
+        <div class="empty-state">
+          <p>No clubs have been created yet.</p>
+          <%= link_to "Create the first club", new_admin_club_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </section>
+  </div>
 </div>
