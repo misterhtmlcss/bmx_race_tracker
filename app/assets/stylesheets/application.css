@@ -75,13 +75,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Race Tracker Container */
 .race-tracker {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   max-width: 600px;
   margin: 0 auto;
   background-color: var(--surface);
   box-shadow: 0 0 20px var(--shadow-md);
+  min-height: 100vh;
 }
 
 /* Header */
@@ -239,12 +237,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Main Content */
 .main-content {
-  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 30px;
-  overflow-y: auto;
 }
 
 /* Counter Sections */
@@ -346,7 +342,44 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--black);
   color: var(--text-inverse);
   padding: 15px 20px;
-  text-align: center;
+}
+
+.auth-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-left,
+.auth-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer .auth-btn {
+  background-color: var(--overlay-light-md);
+  color: var(--text-inverse);
+  border: 1px solid var(--overlay-light-lg);
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .auth-btn:hover {
+  background-color: var(--overlay-light-lg);
+}
+
+.footer .auth-btn:active {
+  background-color: var(--overlay-light-xl);
 }
 
 .race-times {
