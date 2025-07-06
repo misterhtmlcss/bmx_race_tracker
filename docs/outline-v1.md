@@ -75,7 +75,6 @@
             cursor: pointer;
             background-color: #007bff;
             color: white;
-            touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
         }
         button:active {
