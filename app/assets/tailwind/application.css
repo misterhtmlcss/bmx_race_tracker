@@ -7,10 +7,8 @@
     @apply min-h-[44px] min-w-[44px];
   }
   
-  /* Prevent zoom on double tap for mobile */
+  /* Remove tap highlight for mobile */
   body {
-    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
-    user-select: none;
   }
 }
