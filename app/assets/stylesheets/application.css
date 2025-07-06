@@ -62,9 +62,7 @@ body {
   background-color: var(--background);
   color: var(--text-primary);
   min-height: 100vh;
-  touch-action: manipulation; /* Prevent zoom on double tap */
   -webkit-tap-highlight-color: transparent;
-  user-select: none;
 }
 
 /* Headers */
@@ -465,12 +463,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Prevent text selection on buttons */
+/* Button styles */
 button {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   font-family: inherit; /* Use body font */
 }
 
